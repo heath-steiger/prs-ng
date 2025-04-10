@@ -1,1 +1,56 @@
-<p>product-edit works!</p>
+<div class="p-4">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!product">Loading...</p>
+    <div *ngIf="product">
+      <main class="single">
+        <table class="table table-sm">
+          
+            <tr>
+                <td>Vendor:</td>
+                <td>
+                  <select [(ngModel)]="product.vendor" class="rounded"[compareWith]="compVendor">
+                    <option *ngFor="let v of vendors" [ngValue]="v">
+                      {{ v.name }}
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                  <td>Name:</td>
+                  <td>
+                    <input [(ngModel)]="product.name" type="text" />
+                  </td>
+                </tr>
+            <tr>
+              <td>Partnumber:</td>
+              <td>
+                <input [(ngModel)]="product.partNumber" type="text" />
+              </td>
+            </tr>
+            <tr>
+              <td>Price:</td>
+              <td>
+                <input [(ngModel)]="product.price" class="text">
+              </td>
+            </tr>
+            <tr>
+              <td>Unit:</td>
+              <td>
+                <input [(ngModel)]="product.unit" type="number" />
+              </td>
+            </tr>
+            <tr>
+              <td>Photopath:</td>
+              <td>
+                <input [(ngModel)]="product.photoPath" type="text" />
+              </td>
+            </tr>
+            
+        </table>
+      </main>
+      <span
+        ><button (click)="save()" class="btn btn-sm btn-primary">
+          Save
+        </button></span
+      >
+    </div>

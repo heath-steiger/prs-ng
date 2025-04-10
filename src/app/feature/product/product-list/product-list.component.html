@@ -9,17 +9,18 @@
       <thead>
         <th>Id</th>
         <th>Vendor</th>
-        <th>Phonenumber</th>
+        <th>Partnumber</th>
         <th>Name</th>
         <th>Price</th>
         <th>Unit</th>
         <th>Photopath</th>
+        <th>Action</th>
       </thead>
       <tbody>
         <tr *ngFor="let p of products">
           <td>{{p.id}}</td>
           <td>{{p.vendor.name}}</td>
-          <td>{{p.phoneNumber}}</td> 
+          <td>{{p.partNumber}}</td> 
           <td>{{p.name}}</td>
           <td>{{p.price}}</td>
           <td>{{p.unit}}</td>
@@ -50,7 +51,6 @@
               (click)="delete(p.id)"
             />
           </a>
-          
           </td>
         </tr>
       </tbody>

@@ -15,6 +15,19 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { MenuComponent } from './core/menu/menu.component';
+import { UserListComponent } from './feature/user/user-list/user-list.component';
+import { UserCreateComponent } from './feature/user/user-create/user-create.component';
+import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
+import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
+import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { LineitemListComponent } from './feature/lineitem/lineitem-list/lineitem-list.component';
+import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem-edit.component';
+import { LineitemCreateComponent } from './feature/lineitem/lineitem-create/lineitem-create.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +41,20 @@ import { MenuComponent } from './core/menu/menu.component';
     ProductCreateComponent,
     ProductDetailComponent,
     ProductEditComponent,
-    MenuComponent
+    MenuComponent,
+    UserListComponent,
+    UserCreateComponent,
+    UserEditComponent,
+    UserDetailComponent,
+    RequestListComponent,
+    RequestEditComponent,
+    RequestDetailComponent,
+    RequestCreateComponent,
+    UserLoginComponent,
+    RequestLinesComponent,
+    LineitemListComponent,
+    LineitemEditComponent,
+    LineitemCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,7 @@ export class ProductCreateComponent implements OnInit, OnDestroy {
         },
         error: (err) => {
           console.error(
-            'Credit Create Error: error loading vendors.' + err.message
+            'Product Create Error: error loading vendors.' + err.message
           );
         },
       });
