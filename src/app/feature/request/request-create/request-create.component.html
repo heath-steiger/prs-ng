@@ -1,0 +1,47 @@
+<div class="p-4">
+    <h1>{{ title }}</h1>
+    <table>
+        <tr>
+          <td>User:</td>
+          <td>
+            <select [(ngModel)]="newRequest.user" class="rounded">
+              <option *ngFor="let u of users" [ngValue]="u">
+                {{ u.firstName+' '+u.lastName }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+              <input [(ngModel)]="newRequest.description" type="text" />
+            </td>
+          </tr>
+      <tr>
+        <td>Justification:</td>
+        <td>
+          <input [(ngModel)]="newRequest.justification" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Dateneeded:</td>
+        <td>
+          <input [(ngModel)]="newRequest.dateNeeded" type="date">
+        </td>
+      </tr>
+      <tr>
+        <td>Deliverymode:</td>
+        <td>
+          <select [(ngModel)]="newRequest.deliveryMode" class="rounded">
+            <option *ngFor="let d of deliveryMode" [ngValue]="d">
+              {{d}}
+            </option>
+          </select>
+        </td>
+      </tr>
+      
+      
+    </table>
+    <button (click)="addRequest()">Add Request</button>
+  </div>
+

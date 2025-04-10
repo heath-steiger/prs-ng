@@ -1,0 +1,62 @@
+<div class="p-4">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!user">Loading...</p>
+    <div *ngIf="user">
+      <main class="single">
+        <table class="table table-sm">
+          <tr>
+            <td>Username:</td>
+            <td>
+              <input [(ngModel)]="user.username" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Password:</td>
+            <td>
+              <input [(ngModel)]="user.password" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Firstname:</td>
+            <td>
+              <input [(ngModel)]="user.firstName" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Lastname:</td>
+            <td>
+              <input [(ngModel)]="user.lastName" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Phonenumber:</td>
+            <td>
+              <input [(ngModel)]="user.phoneNumber" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>
+              <input [(ngModel)]="user.email" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Reviewer:</td>
+            <td>
+              <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Admin:</td>
+            <td>
+              <input [(ngModel)]="user.admin" class="rounded" type="checkbox" />
+            </td>
+          </tr>
+        </table>
+      </main>
+      <span
+        ><button (click)="save()" class="btn btn-sm btn-primary">
+          Save
+        </button></span
+      >
+    </div>

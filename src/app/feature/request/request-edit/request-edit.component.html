@@ -1,0 +1,55 @@
+<div class="p-4">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!request">Loading...</p>
+    <div *ngIf="request">
+      <main class="single">
+        <table class="table table-sm">
+          
+            <tr>
+                <td>User:</td>
+                <td>
+                  <select [(ngModel)]="request.user" class="rounded"[compareWith]="compUser">
+                    <option *ngFor="let u of users" [ngValue]="u">
+                      {{ u.firstName + ' '+ u.lastName }}
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                  <td>Description:</td>
+                  <td>
+                    <input [(ngModel)]="request.description" type="text" />
+                  </td>
+                </tr>
+            <tr>
+              <td>Justification:</td>
+              <td>
+                <input [(ngModel)]="request.justification" type="text" />
+              </td>
+            </tr>
+            <tr>
+              <td>Dateneeded:</td>
+              <td>
+                <input [(ngModel)]="request.dateNeeded" type="date">
+              </td>
+            </tr>
+            <tr>
+              <td>Deliverymode:</td>
+              <td>
+                <select [(ngModel)]="request.deliveryMode" class="rounded">
+                    <option *ngFor="let d of deliveryMode" [ngValue]="d">
+                      {{d}}
+                    </option>
+                  </select>
+              </td>
+            </tr>
+            
+            
+        </table>
+      </main>
+      <span
+        ><button (click)="save()" class="btn btn-sm btn-primary">
+          Save
+        </button></span
+      >
+    </div>

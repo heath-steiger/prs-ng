@@ -1,0 +1,54 @@
+<div class="p-4">
+    <h1>{{ title }}</h1>
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td>
+          <input [(ngModel)]="newUser.username" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td>
+          <input [(ngModel)]="newUser.password" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Firstname:</td>
+        <td>
+          <input [(ngModel)]="newUser.firstName" class="text">
+        </td>
+      </tr>
+      <tr>
+        <td>Lastname:</td>
+        <td>
+          <input [(ngModel)]="newUser.lastName" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Phonenumber:</td>
+        <td>
+          <input [(ngModel)]="newUser.phoneNumber" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>
+          <input [(ngModel)]="newUser.email" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Admin:</td>
+        <td>
+          <input [(ngModel)]="newUser.admin" type="checkbox" />
+        </td>
+      </tr>
+      <tr>
+        <td>Reviewer:</td>
+        <td>
+          <input [(ngModel)]="newUser.reviewer" type="checkbox" />
+        </td>
+      </tr>
+    </table>
+    <button (click)="addVendor()">Add User</button>
+  </div>

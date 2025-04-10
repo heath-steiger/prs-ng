@@ -1,0 +1,83 @@
+<div *ngIf="request" class="component">
+    <section class="heading">
+      <span class="page-title font-weight-bold font-italic">{{ title }}</span>
+      <span> | <a routerLink="/request-list">Return to List</a></span>
+    </section>
+    <main class="single">
+      <table class="table table-sm">
+        <tr>
+          <td>ID</td>
+          <td>{{ request.id }}</td>
+        </tr>
+        
+        <tr>
+          <td>User:</td>
+          <td>
+            <input
+            [value]="request.user.firstName + ' ' +request.user.lastName"
+            class="rounded"
+            type="text"
+            disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>
+            <input
+              [(ngModel)]="request.description"
+              class="rounded"
+              type="text"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Justification:</td>
+          <td>
+            <input
+              [(ngModel)]="request.justification"
+              class="rounded"
+              type="text"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+            <td>Dateneeded:</td>
+            <td>
+              <input
+                [(ngModel)]="request.dateNeeded"
+                class="rounded"
+                type="text"
+                disabled
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Deliverymode</td>
+            <td>
+              <input
+                [(ngModel)]="request.deliveryMode"
+                class="rounded"
+                type="text"
+                disabled
+              />
+            </td>
+          </tr>
+      </table>
+    </main>
+    <span>
+      <span
+        ><a routerLink="/request-edit/{{ request.id }}" class="btn btn-sm btn-warning"
+          >Edit</a
+        ></span
+      >
+      <span>
+        |
+        <button (click)="delete()" class="btn btn-sm btn-danger">
+          Delete
+        </button></span
+      >
+    </span>
+  </div>
