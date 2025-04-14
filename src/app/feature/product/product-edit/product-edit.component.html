@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="p-4">
     <span class="component-title">{{ title }}</span>
     <p *ngIf="!product">Loading...</p>
@@ -37,12 +38,6 @@
               <td>Unit:</td>
               <td>
                 <input [(ngModel)]="product.unit" type="number" />
-              </td>
-            </tr>
-            <tr>
-              <td>Photopath:</td>
-              <td>
-                <input [(ngModel)]="product.photoPath" type="text" />
               </td>
             </tr>
             

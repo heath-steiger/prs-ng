@@ -1,14 +1,11 @@
+<app-menu></app-menu>
 <div class="p-4">
     <h1>{{ title }}</h1>
     <table>
         <tr>
           <td>User:</td>
           <td>
-            <select [(ngModel)]="newRequest.user" class="rounded">
-              <option *ngFor="let u of users" [ngValue]="u">
-                {{ u.firstName+' '+u.lastName }}
-              </option>
-            </select>
+            <input [value]="newRequest.user.firstName + ' ' + newRequest.user.lastName" class="text" disabled>
           </td>
         </tr>
         <tr>

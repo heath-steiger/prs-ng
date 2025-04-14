@@ -26,7 +26,9 @@ constructor(
 
   ngOnInit(): void {
     this.loggedInUser = this.sysSvc.loggedInUser;
+    console.log("AA"+this.loggedInUser)
     this.isAdmin = this.loggedInUser.admin;
+    console.log("AA"+this.isAdmin)
     this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
     console.log('logged in user: ', this.sysSvc.loggedInUser);
     

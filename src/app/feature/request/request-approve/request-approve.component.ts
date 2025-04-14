@@ -1,24 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Lineitem } from '../../../model/lineitem';
-import { Request } from '../../../model/request';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Lineitem } from '../../../model/lineitem';
 import { LineitemService } from '../../../service/lineitem.service';
 import { RequestService } from '../../../service/request.service';
-import { User } from '../../../model/user';
+import { Request } from '../../../model/request';
+import { ApproveService } from '../../../service/approve.service';
+import { RejectService } from '../../../service/reject.service';
 
 @Component({
-  selector: 'app-request-lines',
+  selector: 'app-request-approve',
   standalone: false,
-  templateUrl: './request-lines.component.html',
-  styleUrl: './request-lines.component.css'
+  templateUrl: './request-approve.component.html',
+  styleUrl: './request-approve.component.css'
 })
-export class RequestLinesComponent implements OnInit, OnDestroy{
+export class RequestApproveComponent  implements OnInit, OnDestroy{
 
-  title: string = '[Purchase Request Line Items]';
+  title: string = '[Purchase Request Approve/Reject]';
   subscription!: Subscription;
   requestId: number = 0;
-  user! : User;
   request!: Request;
   lineItems!: Lineitem[];
   requests!: Request[];
@@ -26,9 +26,11 @@ export class RequestLinesComponent implements OnInit, OnDestroy{
  
   constructor(
    private actRoute: ActivatedRoute,
-  private router: Router,
    private requestSvc: RequestService,
-   private lineItemSvc: LineitemService,       
+   private approveSvc: ApproveService,
+   private rejectSvc: RejectService,
+   private lineItemSvc: LineitemService,   
+   private router: Router    
   ){}
  
    ngOnInit(): void {
@@ -61,41 +63,31 @@ export class RequestLinesComponent implements OnInit, OnDestroy{
        });
     });
      
-   }
+  }
+  approve() {
+    this.approveSvc.update(this.request).subscribe({
+      next: resp => {
+        this.request = resp;
+        this.router.navigateByUrl('review-list');
+      },
+      error: (err) => {
+        console.log('error approving request', err);
+      },
+  });
+ }
+ reject() {
+  this.rejectSvc.update(this.request).subscribe({
+    next: resp => {
+      this.request = resp;
+      this.router.navigateByUrl('review-list');
+    },
+    error: (err) => {
+      console.log('error rejecting request', err);
+    },
+});
+}
    ngOnDestroy(): void {
      this.subscription?.unsubscribe;
    }
-   compRequest(a: Request, b: Request): boolean {
-     return a && b && a.id == b.id;
-   }
-   delete(lineItemId: number) {
-    this.subscription = this.lineItemSvc.delete(lineItemId).subscribe({
-      next: () => {
-        // refresh the lineitem list
-        this.subscription = this.lineItemSvc.getLineitemsForRequestId(this.requestId).subscribe({
-          next: (resp) => {
-          this.lineItems = resp;
-          }
-        });
-      },
-      error: (err) => {
-        console.log('Error deleting lineItem for id: '+lineItemId);
-        alert('Error deleting lineItem for id: '+lineItemId);
-      }
-    });
-  }
-  forReview() {
-    this.requestSvc.forReview(this.request).subscribe({
-      next: resp => {
-        this.request = resp;
-        this.router.navigateByUrl('request-list');
-      },
-      error: (err) => {
-        console.log('error submitting for review', err);
-      },
-  });
-
-
-}
    
  }

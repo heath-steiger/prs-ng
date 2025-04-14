@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="p-4">
   <section class="heading">
     <span class="page-title font-weight-bold font-italic">{{ title }}</span>
@@ -12,7 +13,7 @@
     </thead>
     <tbody>
      <tr>
-      <td>{{request.user.firstName + ' ' + request.user.lastName }}</td>
+      <td>{{request.user.firstName + ' ' +request.user.lastName }}</td>
       <td>{{request.description}}</td>
       <td>{{request.status}}</td>
       <td>{{'$'+request.total}}</td>
@@ -70,4 +71,8 @@
       </tr>
     </tbody>
   </table>
+
+  <button (click)="forReview()" class="btn btn-sm btn-primary">
+    Submit
+  </button>
 </div>

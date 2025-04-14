@@ -11,11 +11,11 @@ export class Request {
     status: string;
     total: string;
     submittedDate;
-    
+    reasonForRejection: string;
 
     constructor(id: number = 0, user: User = new User(), description: string = '', dateNeeded: string = '', 
         deliveryMode: string = '', justification: string = '', status: string = ''
-        , total: string = '', submittedDate: string = ''
+        , total: string = '', submittedDate: string = '', reasonForRejection: string = ''
 ){
         this.id = id;
         this.user = user;
@@ -26,5 +26,6 @@ export class Request {
         this.status = status;
         this.total = total;
         this.submittedDate = submittedDate;
+        this.reasonForRejection = reasonForRejection;
     } 
 }

@@ -62,7 +62,7 @@ export class LineitemCreateComponent implements OnInit, OnDestroy {
 
     addLineitem(): void {
       this.subscription = this.lineItemSvc.add(this.newLineitem).subscribe((resp) => {
-        this.router.navigateByUrl('request-lines');
+        this.router.navigateByUrl('request-lines/'+this.requestId);
       } );
     }
 }

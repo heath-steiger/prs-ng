@@ -11,7 +11,7 @@ import { UserService } from '../../../service/user.service';
   styleUrl: './user-create.component.css'
 })
 export class UserCreateComponent implements OnInit, OnDestroy {
-  title: string = "User-Create";
+  title: string = "[User-Create]";
   newUser: User = new User();
   subscription!: Subscription;
   
@@ -26,8 +26,9 @@ export class UserCreateComponent implements OnInit, OnDestroy {
   
     }
   
-    addVendor(): void {
+    add(): void {
       this.subscription = this.userSvc.add(this.newUser).subscribe((resp) => {
+        console.log("user-"+this.newUser)
         this.router.navigateByUrl('user-list');
       } );
     }

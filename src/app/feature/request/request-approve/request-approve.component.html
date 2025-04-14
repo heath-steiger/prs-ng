@@ -1,0 +1,70 @@
+<app-menu></app-menu>
+<div class="p-4">
+  <section class="heading">
+    <span class="page-title font-weight-bold font-italic">{{ title }}</span>
+  </section>
+<table class="table table-striped table-hover">
+    <thead>
+ 
+      <th>ID</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Total</th>
+    </thead>
+    <tbody>
+     <tr>
+      <td>{{request.user.id}}</td>
+      <td>{{request.description}}</td>
+      <td>{{request.status}}</td>
+      <td>{{'$'+request.total}}</td>
+    </tr>
+</tbody>
+</table>
+</div>
+<hr>
+<div class="p-4">
+  <section class="heading">
+    <span class="page-title font-weight-bold font-italic">{{ '[Line Items]' }}</span>
+    
+  </section>
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>ID</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Line Total</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let l of lineItems">
+        <td>{{l.product.vendor.id}}</td>
+        <td>{{l.product.name}}</td>
+        <td>{{l.quantity}}</td> 
+        <td>{{'$'+l.product.price}}</td>
+        <td>{{'$'+l.request.total}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <td>
+        <button (click)="approve()" class="btn btn-sm btn-primary">
+          Approve
+        </button>
+      </td>
+      <td>
+        
+          <input [(ngModel)]="request.reasonForRejection" type="text"/>
+        
+      </td>
+      <td *ngIf="request.reasonForRejection.length > 0 " >
+        
+        <button  (click)="reject()" class="btn btn-sm btn-danger">
+          Reject
+        </button>
+      </td>
+    </tbody>
+  </table>
+</div>
+

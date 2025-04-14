@@ -3,5 +3,13 @@
         <li *ngFor="let mi of menuItems" title="{{mi.tooltip}}">
                 <a routerLink= {{mi.href}}>{{mi.display}} </a>
         </li>
+        <ng-container *ngIf="isReviewer">
+            <li *ngFor="let mr of menuReview" title="{{mr.tooltip}}">
+              <a [routerLink]="mr.href">{{ mr.display }}</a>
+            </li>
+          </ng-container>
+          <li *ngFor="let l of login" title="{{l.tooltip}}">
+            <a [routerLink]="l.href">{{ l.display }}</a>
+          </li>
     </ul>
 </nav>

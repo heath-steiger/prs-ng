@@ -14,6 +14,7 @@ export class RequestService {
   constructor(private http: HttpClient) { }
 
 
+
   list(): Observable<Request[]>{
     return this.http.get(URL + '/') as Observable<Request[]>;
   }
@@ -24,6 +25,10 @@ export class RequestService {
 
   update(request: Request): Observable<Request> {
     return this.http.put(URL + '/'+ request.id, request) as Observable<Request>;
+  }
+
+  forReview(request: Request): Observable<Request> {
+    return this.http.put(URL + '/submit-review/'+ request.id, request) as Observable<Request>;
   }
 
   getById(id: number): Observable<Request> {
