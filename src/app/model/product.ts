@@ -5,11 +5,11 @@ export class Product {
     vendor: Vendor;
     partNumber: string;
     name: string;
-    price: string;
+    price: number;
     unit: string;
     photoPath: string;
 
-    constructor(id: number = 0, vendor: Vendor = new Vendor(), name: string = '', price: string = '', unit: string = ''
+    constructor(id: number = 0, vendor: Vendor = new Vendor(), name: string = '', price: number = 0, unit: string = ''
         , photoPath: string = '', partNumber: string = ''
 ){
         this.id = id;

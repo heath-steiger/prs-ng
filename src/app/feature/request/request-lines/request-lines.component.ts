@@ -75,8 +75,16 @@ export class RequestLinesComponent implements OnInit, OnDestroy{
         this.subscription = this.lineItemSvc.getLineitemsForRequestId(this.requestId).subscribe({
           next: (resp) => {
           this.lineItems = resp;
-          }
-        });
+            
+          this.subscription = this.requestSvc.getById(this.requestId).subscribe({
+            next: (resp) => {
+              this.request = resp;
+            }
+          });
+        }
+      });
+     
+        
       },
       error: (err) => {
         console.log('Error deleting lineItem for id: '+lineItemId);

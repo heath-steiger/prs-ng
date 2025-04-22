@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Vendor } from '../../../model/vendor';
 import { VendorService } from '../../../service/vendor.service';
+import { User } from '../../../model/user';
+import { SystemService } from '../../../service/system.service';
 
 @Component({
   selector: 'app-vendor-detail',
@@ -15,14 +17,19 @@ export class VendorDetailComponent implements OnInit, OnDestroy {
   vendorId!: number;
   vendor!: Vendor;
   subscription!: Subscription;
+   loggedInUser!: User; 
+      isAdmin: boolean = false;
 
   constructor(
     private vendorSvc: VendorService,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private sysSvc: SystemService
   ) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
     // get the vendor id from the url
     this.actRoute.params.subscribe((parms)=>{
       this.vendorId = parms['id'];

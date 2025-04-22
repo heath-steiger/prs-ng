@@ -28,7 +28,7 @@
           <td><input type="checkbox" [checked]="u.reviewer" disabled/></td>
           <td><input type="checkbox" [checked]="u.admin" disabled/></td>
           
-          <td><a routerLink="/user-edit/{{ u.id }}">
+          <td><a *ngIf="this.isAdmin" routerLink="/user-edit/{{ u.id }}">
             <img
               src="images/pencil-icon.png"
               width="20"
@@ -44,7 +44,7 @@
               title="User Details"
             />
           </a>
-          <a>
+          <a *ngIf="this.isAdmin">
             <img
               src="images/delete.jpg"
               width="20"

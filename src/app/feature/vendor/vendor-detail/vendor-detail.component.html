@@ -102,11 +102,11 @@
     </main>
     <span>
       <span
-        ><a routerLink="/vendor-edit/{{ vendor.id }}" class="btn btn-sm btn-warning"
+        ><a *ngIf="this.isAdmin" routerLink="/vendor-edit/{{ vendor.id }}" class="btn btn-sm btn-warning"
           >Edit</a
         ></span
       >
-      <span>
+      <span *ngIf="this.isAdmin">
         |
         <button (click)="delete()" class="btn btn-sm btn-danger">
           Delete

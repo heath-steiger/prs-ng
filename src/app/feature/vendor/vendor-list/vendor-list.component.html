@@ -2,7 +2,7 @@
 <div class="p-4">
     <section class="heading">
       <span class="page-title font-weight-bold font-italic">{{ title }}</span>
-      <a routerLink="/vendor-create">
+      <a *ngIf="this.isAdmin" routerLink="/vendor-create">
         <img width="20" height="20" src="images/add-icon.png" title="Add New" />
       </a>
     </section>
@@ -29,7 +29,7 @@
           <td>{{v.phoneNumber}}</td>
           <td>{{v.email}}</td>
           
-          <td><a routerLink="/vendor-edit/{{ v.id }}">
+          <td><a *ngIf="this.isAdmin" routerLink="/vendor-edit/{{ v.id }}">
             <img
               src="images/pencil-icon.png"
               width="20"
@@ -45,7 +45,7 @@
               title="Vendor Details"
             />
           </a>
-          <a>
+          <a *ngIf="this.isAdmin">
             <img
               src="images/delete.jpg"
               width="20"

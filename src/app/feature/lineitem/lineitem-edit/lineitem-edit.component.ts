@@ -53,10 +53,12 @@ ngOnInit(): void {
     });
   }
     save() {
+      const requestId = this.lineitem.request.id; 
       this.lineitemSvc.update(this.lineitem).subscribe({
         next: resp => {
           this.lineitem = resp;
-          this.router.navigateByUrl('request-lines/'+this.lineitemId);
+          this.router.navigateByUrl('request-lines/'+requestId);
+          console.log('line item id '+ requestId)
         },
         error: (err) => {
           console.log('error saving lineitem', err);

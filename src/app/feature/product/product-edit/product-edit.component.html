@@ -1,6 +1,7 @@
 <app-menu></app-menu>
 <div class="p-4">
     <span class="component-title">{{ title }}</span>
+    <span> | <a routerLink="/product-list">Return to List</a></span>
     <p *ngIf="!product">Loading...</p>
     <div *ngIf="product">
       <main class="single">

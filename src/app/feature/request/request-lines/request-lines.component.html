@@ -47,7 +47,7 @@
         <td>{{l.product.name}}</td>
         <td>{{l.quantity}}</td> 
         <td>{{'$'+l.product.price}}</td>
-        <td>{{'$'+l.request.total}}</td>
+        <td>{{'$'+l.product.price * l.quantity}}</td>
 
         <td><a routerLink="/lineitem-edit/{{ l.id }}">
           <img

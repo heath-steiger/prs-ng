@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from '../../../model/user';
 import { UserService } from '../../../service/user.service';
+import { SystemService } from '../../../service/system.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -15,14 +16,19 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   userId!: number;
   user!: User;
   subscription!: Subscription;
+  loggedInUser!: User; 
+  isAdmin: boolean = false;
 
   constructor(
     private userSvc: UserService,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private sysSvc: SystemService
   ) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
     // get the user id from the url
     this.actRoute.params.subscribe((parms)=>{
       this.userId = parms['id'];
